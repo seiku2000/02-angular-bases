@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { CounterPageComponent } from './pages/counter/counter-page.component';
 import { HeroPageComponent } from './pages/hero/hero-page.component';
+import { DragonballPageComponent } from './pages/dragonball/dragonball-page.component';
 
 export const routes: Routes = [
     {
@@ -12,10 +13,15 @@ export const routes: Routes = [
         path: 'hero',
         component: HeroPageComponent
     },
+    {
+        path: 'dragonball', //esto es un path o una ruta 
+        component: DragonballPageComponent //este es el componente que se va a renderizar cuando se visite el path
+    },
 
     {
-        path: '**',
-        redirectTo: 'counter'
-    }
+        path: '**',// este es un comodin para cualquier otra ruta no definida 
+        redirectTo: 'counter' //nos redirige a la ruta counter
+    },
+
 
 ];

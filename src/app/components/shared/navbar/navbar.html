@@ -1,0 +1,18 @@
+<nav>
+    <!-- Router LinkOptions ayuda a que el link se mantenga activo cuando estamos en la ruta-->
+    <a routerLink="/counter" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Contador</a>
+    <!--router link ayuda a navegar entre las rutas sin hacer un refresco de pagina-->
+    <!--router link active ayuda a que el link se mantenga activo-->
+
+
+
+
+    <!-- [routerLink]="[]" nos ayuda a que el link se mantenga activo
+         cuando estamos en la pagina y podemos mandar un parametro
+         ejemplo ['hero', '1'] nos mandara a /hero/1
+    -->
+    <a [routerLink]="['hero']" routerLinkActive="active">Hero</a>
+
+    <a routerLink="/dragonball" routerLinkActive="active">DragonBall</a>
+
+</nav>

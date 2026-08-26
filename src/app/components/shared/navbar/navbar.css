@@ -1,0 +1,21 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    background-color: #212121;
+    padding: 10px;
+    color: #fff;
+
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 5px;
+    margin: 10px;
+}
+
+.active {
+    color: red;
+}
