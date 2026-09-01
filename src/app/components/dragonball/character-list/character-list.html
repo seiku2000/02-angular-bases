@@ -1,1 +1,48 @@
-<p>character-list works!</p>,
+<!--
+<h3>Listado de personajes</h3>
+
+-->
+<h3>{{listName()}}</h3>
+<ol class="list-group ">
+
+    <!--Implementación de un bloque condicional @for es como el for tradicional solo que implementado con Angular-->
+    @for (character of characters(); track character.id; let idx =$index) {
+    <li class="list-group-item">
+
+        <!--Implementación de un bloque condicional @if -->
+        @if (character.power >500) {
+
+
+
+        <span class="badge text-bg-primary me-3">{{idx + 1}}</span>
+        {{character.name}}
+
+
+        <!--Otra forma de eveluar las clases dinamicamente con CSS-->
+        <!--<small [ngClass]="powerClass()">{{character.power}}</small>-->
+
+
+        <small class="fw-bold" [class.text-danger]="character.power > 9000"
+            [class.text-info]="  character.power  < 9000">{{character.power}}</small>
+
+
+
+
+
+
+
+        }@else {
+        <strong>Aqui no hay nada</strong>
+        }
+
+    </li>
+
+
+
+
+    <!---class="fw-bold text-info"-->
+    }
+
+
+
+</ol>

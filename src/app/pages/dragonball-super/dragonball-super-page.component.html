@@ -13,63 +13,21 @@
 
 
 
-        <!--/*(change)="name.set($event.target?.value)" */-->
-        <input #txtName type="text" placeholder="nuevo nombre" class="form-control" [value]="name()"
-            (input)="name.set(txtName.value)" />
+        <!-- recive el evento del hijo y lo pasa al padre se llama como un evento  -->
+        <!--<app-dragonball-character-add (newCharacter)="addToCharacter($event)" />-->
+        <!--el  $event es el nuevo personaje que se envia desde el componente hijo  -->
 
 
-        <input #txtPower type="number" placeholder="poder" class="form-control  mt-3" [value]="power()"
-            (input)="power.set( txtPower.valueAsNumber)" />
+        <app-dragonball-character-add (newCharacter)="dragonballService.addToCharacter($event)" />
 
-
-        <button type="button" class="btn btn-primary mt-2" (click)="addToCharacter()">Agregar</button>
     </div>
     <div class="col-12 col-sm-6 mt-3 mt-sm-0">
-        <app-character-list />
-        <h3>Listado de personajes</h3>
-        <ol class="list-group ">
+        <!--aqui recibo las propiedades del hijo [characters] para mostrarlo son los valores que tiene el signal-->
+        <!--<app-character-list listName="Listado de Personajes" [characters]="characters()" />-->
+        <!--el listName es una propiedad que se envia desde el componente hijo  -->
 
-            <!--Implementación de un bloque condicional @for es como el for tradicional solo que implementado con Angular-->
-            @for (character of characters(); track character.id; let idx =$index) {
-            <li class="list-group-item">
+        <app-character-list listName="Listado de Personajes" [characters]="dragonballService.characters()" />
 
-                <!--Implementación de un bloque condicional @if -->
-                @if (character.power >500) {
-
-
-
-                <span class="badge text-bg-primary me-3">{{idx + 1}}</span>
-                {{character.name}}
-
-
-                <!--Otra forma de eveluar las clases dinamicamente con CSS-->
-                <!--<small [ngClass]="powerClass()">{{character.power}}</small>-->
-
-
-                <small class="fw-bold" [class.text-danger]="character.power > 9000"
-                    [class.text-info]="  character.power  < 9000">{{character.power}}</small>
-
-
-
-
-
-
-
-                }@else {
-                <strong>Aqui no hay nada</strong>
-                }
-
-            </li>
-
-
-
-
-            <!---class="fw-bold text-info"-->
-            }
-
-
-
-        </ol>
 
     </div>
 

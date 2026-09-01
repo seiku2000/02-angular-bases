@@ -1,0 +1,10 @@
+<!--/*(change)="name.set($event.target?.value)" */-->
+<input #txtName type="text" placeholder="nuevo nombre" class="form-control" [value]="name()"
+    (input)="name.set(txtName.value)" />
+
+
+<input #txtPower type="number" placeholder="poder" class="form-control  mt-3" [value]="power()"
+    (input)="power.set( txtPower.valueAsNumber)" />
+
+
+<button type="button" class="btn btn-primary mt-2" (click)="addToCharacter()">Agregar</button>
